@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns=[
     url('^$',views.get_images,name = 'get'),
+    
 ]
