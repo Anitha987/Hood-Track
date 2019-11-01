@@ -7,8 +7,6 @@ class Neighbour(models.Model):
     location = models.CharField(max_length=30)
     occupant= models.CharField(max_length=30)
 
-  def __str__(self):
-      return self.name
 
 class Business(models.Models):
     image=models.ImageField(upload_to ='pictures')
@@ -21,7 +19,6 @@ class Profile(models.Model):
     photo = models.ImageField(upload_to = 'photos',null=True,blank=True)
     location = models.TextField(max_length=60)
 
-    def __str__(self):
-        return self.biography
+
          
 
