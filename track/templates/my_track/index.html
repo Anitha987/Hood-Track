@@ -1,0 +1,41 @@
+{% extends 'my_awards/base.html'%}
+{% load bootstrap3% }
+{% block content %} 
+{{ block.super}}
+<style>
+/* .p{
+  position: relative;
+}
+#ro{
+  position: absolute;
+} */
+</style>
+
+<p class="p"style="width:1283px;height:700px;background-image: url(https://xlliftsinc.com/wp-content/uploads/2018/12/awards.jpg);"></p>
+
+<div class="container">
+ 
+  <div class="row" id="ro" style="background-color:azure">
+    
+  <!-- Looping through news   -->
+  {% for awards in images %}
+    <!-- displaying images -->
+  <div class="col-md-4">
+
+    <img src="{{awards.image.url}}" class="img-responsive"alt="Image" width="500" height="500">
+     
+  </div>
+
+  
+
+ 
+
+  {% empty %}
+  <div class="row">
+    awards_project
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}
