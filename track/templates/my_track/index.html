@@ -3,15 +3,51 @@
 {% block content %} 
 {{ block.super}}
 <style>
-/* .p{
-  position: relative;
-}
-#ro{
-  position: absolute;
-} */
-</style>
+    #mySidenav a {
+      position: absolute;
+      left: -80px;
+      transition: 0.3s;
+      padding: 15px;
+      width: 100px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    #mySidenav a:hover {
+      left: 0;
+    }
+    
+    #about {
+      top: 20px;
+      background-color: #555;
+    }
+    
+    #blog {
+      top: 80px;
+      background-color: #555;
+    }
+    
+    #projects {
+      top: 140px;
+      background-color: #555;
+    }
+    
+    #contact {
+      top: 200px;
+      background-color: #555
+    }
+    </style>
 
 <p class="p"style="width:1283px;height:700px;background-image: url(https://i.pinimg.com/originals/be/28/e0/be28e0b73e0f14fc82e71e1995330ec9.jpg);background-size:cover"></p>
+
+<div id="mySidenav" class="sidenav">
+    <a href="#" id="about">About</a>
+    <a href="#" id="blog">Blog</a>
+    <a href="#" id="projects">Projects</a>
+    <a href="#" id="contact">Contact</a>
+  </div>
 
 <div class="container">
  
@@ -32,7 +68,7 @@
 
   {% empty %}
   <div class="row">
-    awards_project
+    
   </div>
   {% endfor %}
 </div>
