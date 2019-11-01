@@ -4,6 +4,6 @@ from .models import Business,Profile,Neighbour,User
 # Create your views here.
 def get_images(request):
     current_user = request.user
-    images=Project.objects.all()
-    return render(request,'my_awards/index.html',{"images":images})
+    images=Business.objects.all()
+    return render(request,'my_track/index.html',{"images":images})
 
