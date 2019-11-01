@@ -8,10 +8,10 @@ class Neighbour(models.Model):
     occupant= models.CharField(max_length=30)
 
 
-class Business(models.Models):
+class Business(models.Model):
     image=models.ImageField(upload_to ='pictures')
     name = models.CharField(max_length=30)
-    neighbour = models.ForeignKey(user)
+    neighbour = models.ForeignKey(User,on_delete=models.CASCADE)
     email=models.CharField(max_length=30)
 
 class Profile(models.Model):

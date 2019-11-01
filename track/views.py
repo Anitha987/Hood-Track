@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project,Profile,User
+from .models import Business,Profile,Neighbour,User
 
 # Create your views here.
 def get_images(request):
