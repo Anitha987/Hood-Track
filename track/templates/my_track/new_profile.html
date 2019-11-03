@@ -1,0 +1,49 @@
+{% extends 'my_track/base.html'%}
+{% load bootstrap3 %}
+{% block content %} 
+<style>
+  .profile{
+    border-radius: 700px;
+    width: 210px;
+    height: 200px; 
+  }
+  .picture:hover {
+    background-color:rgba(0, 0, 0, 0.8); 
+  }
+</style>
+<br><br><br><br><br>
+ 
+<div class="container" > 
+  <div class="jumbotron">
+    <div>
+      <!--displaying images in myinsta -->
+      <img src="{{profile.photo.url}}" class="profile">
+      <br><p style="font-size:xx-large"><strong>{{profile.user}}</strong></p>
+
+      <p style="font-size:large"><strong>{{profile.biography}}</strong></p>
+
+    </div>
+       <button type="button" class="btn btn-default" ><a href="{% url 'profileform' %}" style="font-size:16px;color: rgb(31, 30, 30);float:left;">Edit profile</a></button>
+       <button type="button" class="btn btn-default" ><a href="/logout" style="font-size:16px;color: rgb(31, 30, 30);margin-right:20px;float:right;">Logout</a></button>
+       <button type="button" class="btn btn-default" ><a href="{% url 'profapi' %}" style="font-size:16px;color: rgb(31, 30, 30);margin-right:20px;float:right;">ProfileApi</a></button>
+       <button type="button" class="btn btn-default" ><a href="{% url 'projapi' %}" style="font-size:16px;color: rgb(31, 30, 30);margin-right:20px;float:right;">ProjectApi</a></button>
+
+
+       <div class="row"style="text-align: center">
+       {% for insta in images %}
+       
+       <div class="col-md-4">
+       <!--displaying images in myinsta -->
+      
+       <img src="{{insta.image.url}}" class="picture" style="width:350px;height:300px;border-style:solid" alt="Image"><br> <br>
+      </div>
+     {% endfor %}
+    </div>
+  </div> 
+        
+   </div>
+  </div> 
+</div>
+
+
+{% endblock %}

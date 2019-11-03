@@ -11,8 +11,10 @@ class Neighbour(models.Model):
 class Business(models.Model):
     image=models.ImageField(upload_to ='pictures')
     name = models.CharField(max_length=30)
-    neighbour = models.ForeignKey(User,on_delete=models.CASCADE)
+    neighbour = models.ForeignKey(Neighbour,on_delete=models.CASCADE)
     email=models.CharField(max_length=30)
+    user=models.ForeignKey(User,on_delete=models.CASCADE, blank=True,null=True)
+
 
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
