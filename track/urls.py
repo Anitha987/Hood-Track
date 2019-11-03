@@ -9,3 +9,5 @@ urlpatterns=[
     url(r'^profile/',views.profile,name='profile'),
     url(r'^accounts/profileform', views.profile_form, name='profileform'),   
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
