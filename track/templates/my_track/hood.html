@@ -7,23 +7,17 @@
     <div class="row" id="ro" style="background-color:azure">
       <h2 style="text-align: center">Business directory</h2> 
     <!-- Looping through news   -->
-    {% for awards in hood %}
+    <a href="{% url 'hoodform' %}" style="font-size:16px;color: rgb(31, 30, 30);float:left;"></a><button type="button" class="btn btn-default" >Edit neighbourhood</button></a>
+    
     
       <!-- displaying images -->
-    <div class="col-md-4">
-      <h3 href="{{awards.name}}"></h3>
-      
-    </div>
-  
-    
-  
    
-  
-    {% empty %}
-    <div class="row">
-      
+        {% for awards in hood %}
+      <h3>{{awards.name}}</h3>
+      {% endfor %}
     </div>
-    {% endfor %}
+   
+    
   </div>
   </div>
   {% endblock %}

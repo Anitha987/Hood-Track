@@ -51,12 +51,13 @@ def profile_form(request):
 @login_required(login_url='/accounts/login/')
 def hood(request):
     current_user = request.user
-    hood=Neighbour.objects.filter(user=current_user).first()
+    hood=Neighbour.objects.all()
     return render(request, 'my_track/hood.html', {"hood":hood})
   
 @login_required(login_url='/accounts/login/')
 def hood_form(request):
    current_user = request.user
+   hood=Neighbour.objects.all()
    if request.method == 'POST':
        form = NeighbourForm(request.POST, request.FILES)
        if form.is_valid():
@@ -66,5 +67,5 @@ def hood_form(request):
        return redirect('hood')
    else:
        form = NeighbourForm()
-   return render(request, 'my_track/hoodform.html', {"form": form})
+   return render(request, 'my_track/hoodform.html', {"form": form,"hood":hood})
 
