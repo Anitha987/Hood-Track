@@ -18,7 +18,7 @@ class Business(models.Model):
 
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    image = models.ImageField(upload_to = 'photos',null=True,blank=True)
+    photo = models.ImageField(upload_to = 'photos',null=True,blank=True)
     location = models.TextField(max_length=60)
 
 
