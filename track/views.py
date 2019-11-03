@@ -47,3 +47,26 @@ def profile_form(request):
    else:
        form = ProfileForm()
    return render(request, 'my_track/profileform.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def hood(request):
+    current_user = request.user
+    hood=Profile.objects.filter(user=current_user).first()
+    print(profile)
+    images=Business.objects.filter(user=current_user)
+    return render(request, 'my_track/new_profile.html', {"images":images,"profile":profile})
+  
+@login_required(login_url='/accounts/login/')
+def profile_form(request):
+   current_user = request.user
+   if request.method == 'POST':
+       form = ProfileForm(request.POST, request.FILES)
+       if form.is_valid():
+           profile = form.save(commit=False)
+           profile.user = current_user
+           profile.save()
+       return redirect('profile')
+   else:
+       form = ProfileForm()
+   return render(request, 'my_track/profileform.html', {"form": form})
+
