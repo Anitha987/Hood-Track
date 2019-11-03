@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Business,Profile,Neighbour,User
 from django.contrib.auth.decorators import login_required
+from .forms import BusinessForm,ProfileForm
 
 
 # Create your views here.
