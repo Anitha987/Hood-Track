@@ -12,7 +12,7 @@ class ProfileForm(forms.ModelForm):
 class NeighbourForm(forms.ModelForm):
    class Meta:
         model = Neighbour
-        exclude = ['profile','comments','name','user','likes']
+        exclude = ['']
         # widgets = {
         #     'tags': forms.CheckboxSelectMultiple(),
         # }  

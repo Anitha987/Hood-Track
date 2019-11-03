@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Business,Profile,Neighbour,User
 from django.contrib.auth.decorators import login_required
-from .forms import BusinessForm,ProfileForm
+from .forms import BusinessForm,ProfileForm,NeighbourForm
 
 
 # Create your views here.
@@ -18,7 +18,7 @@ def new_post(request):
         if form.is_valid():
             image = form.save(commit=False)
             image.user = current_user
-            image.Profile=profile
+            # image.Profile=profile
             image.save()
         return redirect('get')
 
@@ -51,22 +51,20 @@ def profile_form(request):
 @login_required(login_url='/accounts/login/')
 def hood(request):
     current_user = request.user
-    hood=Profile.objects.filter(user=current_user).first()
-    print(profile)
-    images=Business.objects.filter(user=current_user)
-    return render(request, 'my_track/new_profile.html', {"images":images,"profile":profile})
+    hood=Neighbour.objects.filter(user=current_user).first()
+    return render(request, 'my_track/hood.html', {"hood":hood})
   
 @login_required(login_url='/accounts/login/')
-def profile_form(request):
+def hood_form(request):
    current_user = request.user
    if request.method == 'POST':
-       form = ProfileForm(request.POST, request.FILES)
+       form = NeighbourForm(request.POST, request.FILES)
        if form.is_valid():
-           profile = form.save(commit=False)
-           profile.user = current_user
-           profile.save()
-       return redirect('profile')
+           hood = form.save(commit=False)
+           hood.user = current_user
+           hood.save()
+       return redirect('hood')
    else:
-       form = ProfileForm()
-   return render(request, 'my_track/profileform.html', {"form": form})
+       form = NeighbourForm()
+   return render(request, 'my_track/hoodform.html', {"form": form})
 

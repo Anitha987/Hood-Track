@@ -1,0 +1,28 @@
+{% extends 'my_track/base.html'%}
+{% load bootstrap3 %}
+{% block content %}
+
+<div class="container">
+ 
+    <div class="row" id="ro" style="background-color:azure">
+      <h2 style="text-align: center">Business directory</h2> 
+    <!-- Looping through news   -->
+    {% for awards in images %}
+    
+      <!-- displaying images -->
+    <div class="col-md-4">
+      <img src="{{awards.image.url}}" class="img-responsive"alt="Image" width="500" height="500">
+      <h4><strong>{{awards.name}}</strong></h4>
+    </div>
+  
+    
+  
+   
+  
+    {% empty %}
+    <div class="row">
+      
+    </div>
+    {% endfor %}
+  </div>
+  </div>
